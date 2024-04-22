@@ -146,3 +146,22 @@ body.light .toggleClass:before{
     text-decoration: none;
     color: #fff;
     }
+
+#allow-notifications {
+  /* Dark mode blue color */
+  background-color: #21295C;
+  color: #FFFFFF;
+  
+  /* Oval button ends */
+  border-radius: 20px;
+  padding: 10px 20px;
+  
+  /* Additional styling */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#allow-notifications:hover {
+  background-color: #1A1D38;
+}
