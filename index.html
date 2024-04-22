@@ -3,8 +3,14 @@
 <head>
 <meta charset="utf-8">
 	<!-- HTML Meta Tags -->
-<link rel="apple-touch-icon" sizes="180x180" href="">
-<meta name="description" content="Get Your Location's Weather Status | EmeditWeb">
+<link rel="apple-touch-icon" sizes="180x180" href="https://github.com/EmeditWeb/Neo-Clock/blob/main/IMG-20240421-WA0043.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Emmanuel Itighise, portfolio, EmeditWeb, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio, clock, digital clock, JavaScript projects, final year Project, latest Nigeria news" />
+<meta name="description" content="A basic neomorphism clock displaying hours, minutes, and seconds, with a toggle feature for light and dark modes by EmeditWeb" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="https://raw.githubusercontent.com/EmeditWeb/Weather-API/main/favicon.ico" type="image/x-png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +36,35 @@
     <div class="toggleClass" onclick="toggleClass()"></div>
 
 
+<button id="allow-notifications">Allow Notifications</button>
+<script>
+const button = document.getElementById('allow-notifications');
+
+button.addEventListener('click', () => {
+  Notification.requestPermission(permission => {
+    if (permission === 'granted') {
+      setInterval(() => {
+        const now = new Date();
+        const hour = now.getHours();
+        if (hour % 1 == 0) { // Check if it's a whole hour
+          const notification = new Notification('⏰ One hour has passed! ⏰', {
+            icon: 'clock.png', // Add an icon to the notification
+            body: 'Time to take a break!', // Add a secondary message
+          });
+          notification.onclick = () => {
+            console.log('Notification clicked!');
+          };
+          notification.onclose = () => {
+            console.log('Notification closed!');
+          };
+        }
+      }, 60 * 60 * 1000); // Run every hour
+    } else {
+      console.log('Notifications not allowed!');
+    }
+  });
+});
+</script>
 <!-- vanilla tilt.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="clk.js"></script>
