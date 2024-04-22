@@ -21,10 +21,9 @@
 <body>
     <div class="backbtn">
         <a href="https://github.com/emeditweb"><i class="fas fa-arrow-circle-left"></i></a>    
+	<button id="allow-notifications">Notify me</button>
       </div> 
-    <div>
-	<button id="allow-notifications">Notify Me</button>
-    </div>
+  
         <div class="clock tilt">
         <div class="hour">
             <div class="hr" id="hr"></div>
@@ -49,8 +48,8 @@ button.addEventListener('click', () => {
         const hour = now.getHours();
         if (hour % 1 == 0) { // Check if it's a whole hour
           const notification = new Notification('⏰ One hour has passed! ⏰', {
-            icon: 'clock.png', // Add an icon to the notification
-            body: 'Time to take a break!', // Add a secondary message
+            icon: 'https://github.com/EmeditWeb/Neo-Clock/blob/main/IMG-20240421-WA0043.jpg', // Add an icon to the notification
+            body: 'Its Time to take a break!', // Add a secondary message
           });
           notification.onclick = () => {
             console.log('Notification clicked!');
